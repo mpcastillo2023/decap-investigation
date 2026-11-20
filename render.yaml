@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: decap-investigation
+    runtime: static
+    branch: main
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./build
+    envVars:
+      - key: NODE_VERSION
+        value: "24.22.1"
+      - key: SKIP_INSTALL_DEPS
+        value: "true"

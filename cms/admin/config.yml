@@ -1,0 +1,131 @@
+# Create the DecapBridge site first, copy its generated backend/authentication
+# block here, and retain the collections below. See README.md.
+backend:
+  name: git-gateway
+  branch: main
+
+locale: en
+media_folder: static/media
+public_folder: /media
+
+collections:
+  - name: spanish-navigation
+    label: Categorías (es)
+    files:
+      - name: visit-category
+        label: Visita
+        file: docs/visita/_category_.json
+        fields:
+          - { name: label, label: Etiqueta, widget: string }
+          - { name: position, label: Posición, widget: number, required: false }
+          - { name: collapsible, label: Plegable, widget: boolean, required: false }
+          - { name: collapsed, label: Plegada por defecto, widget: boolean, required: false }
+          - name: link
+            label: Enlace de categoría
+            widget: object
+            required: false
+            fields:
+              - { name: type, label: Tipo, widget: select, options: [generated-index, doc] }
+              - { name: title, label: Título, widget: string, required: false }
+              - { name: description, label: Descripción, widget: string, required: false }
+              - { name: slug, label: Slug, widget: string, required: false }
+              - { name: id, label: ID de documento, widget: string, required: false }
+  - name: english-navigation
+    label: Categories (en)
+    files:
+      - name: visit-category
+        label: Visit
+        file: i18n/en/docusaurus-plugin-content-docs/current/visita/_category_.json
+        fields:
+          - { name: label, label: Label, widget: string }
+          - { name: position, label: Position, widget: number, required: false }
+          - { name: collapsible, label: Collapsible, widget: boolean, required: false }
+          - { name: collapsed, label: Collapsed by default, widget: boolean, required: false }
+          - name: link
+            label: Category link
+            widget: object
+            required: false
+            fields:
+              - { name: type, label: Type, widget: select, options: [generated-index, doc] }
+              - { name: title, label: Title, widget: string, required: false }
+              - { name: description, label: Description, widget: string, required: false }
+              - { name: slug, label: Slug, widget: string, required: false }
+              - { name: id, label: Document ID, widget: string, required: false }
+  - name: catalan-navigation
+    label: Categories (ca)
+    files:
+      - name: visit-category
+        label: Visita
+        file: i18n/ca/docusaurus-plugin-content-docs/current/visita/_category_.json
+        fields:
+          - { name: label, label: Etiqueta, widget: string }
+          - { name: position, label: Posició, widget: number, required: false }
+          - { name: collapsible, label: Plegable, widget: boolean, required: false }
+          - { name: collapsed, label: Plegada per defecte, widget: boolean, required: false }
+          - name: link
+            label: Enllaç de categoria
+            widget: object
+            required: false
+            fields:
+              - { name: type, label: Tipus, widget: select, options: [generated-index, doc] }
+              - { name: title, label: Títol, widget: string, required: false }
+              - { name: description, label: Descripció, widget: string, required: false }
+              - { name: slug, label: Slug, widget: string, required: false }
+              - { name: id, label: ID del document, widget: string, required: false }
+  - name: spanish
+    label: Español
+    folder: docs
+    create: true
+    nested:
+      depth: 4
+      summary: '{{title}}'
+      subfolders: true
+    slug: '{{slug}}'
+    format: frontmatter
+    extension: md
+    fields:
+      - { name: title, label: Título, widget: string }
+      - { name: description, label: Descripción, widget: string, required: false }
+      - { name: sidebar_label, label: Nombre en el menú, widget: string, required: false }
+      - { name: sidebar_position, label: Posición, widget: number, required: false }
+      - { name: body, label: Contenido, widget: markdown }
+    meta:
+      path: { widget: string, label: Ruta dentro del idioma }
+  - name: english
+    label: English
+    folder: i18n/en/docusaurus-plugin-content-docs/current
+    create: true
+    nested:
+      depth: 4
+      summary: '{{title}}'
+      subfolders: true
+    slug: '{{slug}}'
+    format: frontmatter
+    extension: md
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: string, required: false }
+      - { name: sidebar_label, label: Sidebar label, widget: string, required: false }
+      - { name: sidebar_position, label: Position, widget: number, required: false }
+      - { name: body, label: Content, widget: markdown }
+    meta:
+      path: { widget: string, label: Path within language }
+  - name: catalan
+    label: Català
+    folder: i18n/ca/docusaurus-plugin-content-docs/current
+    create: true
+    nested:
+      depth: 4
+      summary: '{{title}}'
+      subfolders: true
+    slug: '{{slug}}'
+    format: frontmatter
+    extension: md
+    fields:
+      - { name: title, label: Títol, widget: string }
+      - { name: description, label: Descripció, widget: string, required: false }
+      - { name: sidebar_label, label: Etiqueta del menú, widget: string, required: false }
+      - { name: sidebar_position, label: Posició, widget: number, required: false }
+      - { name: body, label: Contingut, widget: markdown }
+    meta:
+      path: { widget: string, label: Camí dins l’idioma }
