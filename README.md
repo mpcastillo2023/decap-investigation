@@ -30,3 +30,7 @@ Use Node 24.22.1 and run `npm ci` followed by `npm start`. The generated admin s
 ## Content and privacy
 
 All venue details and the SVG illustration are fictional sample content. The deployed site is public, including its docs and editor shell. DecapBridge controls editor sign-in and repository access; it does not make published documentation private. Review content before adding anything private.
+
+## Category visibility
+
+Each language has an independent **Show in menu** toggle in its category settings. Turning it off removes that category and its nested categories from that language's sidebar only; it does not remove the documents from the build, search results, or direct URLs, and it does not restrict access. New categories need the same `customProps.showInMenu` metadata and Decap field in their locale's category collection to use this toggle.

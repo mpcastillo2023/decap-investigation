@@ -47,6 +47,11 @@ collections:
           - { name: position, label: Posición, widget: number, required: false }
           - { name: collapsible, label: Plegable, widget: boolean, required: false }
           - { name: collapsed, label: Plegada por defecto, widget: boolean, required: false }
+          - name: customProps
+            label: Opciones de visualización
+            widget: object
+            fields:
+              - { name: showInMenu, label: Mostrar en el menú, widget: boolean, default: true }
           - name: link
             label: Enlace de categoría
             widget: object
@@ -68,6 +73,11 @@ collections:
           - { name: position, label: Position, widget: number, required: false }
           - { name: collapsible, label: Collapsible, widget: boolean, required: false }
           - { name: collapsed, label: Collapsed by default, widget: boolean, required: false }
+          - name: customProps
+            label: Display options
+            widget: object
+            fields:
+              - { name: showInMenu, label: Show in menu, widget: boolean, default: true }
           - name: link
             label: Category link
             widget: object
@@ -89,6 +99,11 @@ collections:
           - { name: position, label: Posició, widget: number, required: false }
           - { name: collapsible, label: Plegable, widget: boolean, required: false }
           - { name: collapsed, label: Plegada per defecte, widget: boolean, required: false }
+          - name: customProps
+            label: Opcions de visualització
+            widget: object
+            fields:
+              - { name: showInMenu, label: Mostrar al menú, widget: boolean, default: true }
           - name: link
             label: Enllaç de categoria
             widget: object
