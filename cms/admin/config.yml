@@ -37,10 +37,11 @@ public_folder: /media
 
 collections:
   - name: spanish-navigation
-    label: Categorías (es)
+    label: Secciones del menú lateral (es)
+    description: Configura cómo aparecen los documentos de la carpeta visita/ en el menú lateral. El contenido se edita desde Español.
     files:
       - name: visit-category
-        label: Visita
+        label: Carpeta visita/ — ajustes del menú
         file: docs/visita/_category_.json
         fields:
           - { name: label, label: Etiqueta, widget: string }
@@ -63,10 +64,11 @@ collections:
               - { name: slug, label: Slug, widget: string, required: false }
               - { name: id, label: ID de documento, widget: string, required: false }
   - name: english-navigation
-    label: Categories (en)
+    label: Sidebar sections (en)
+    description: Configure how documents in the visita/ folder appear in the sidebar. Edit their content under English.
     files:
       - name: visit-category
-        label: Visit
+        label: visita/ folder — sidebar settings
         file: i18n/en/docusaurus-plugin-content-docs/current/visita/_category_.json
         fields:
           - { name: label, label: Label, widget: string }
@@ -89,10 +91,11 @@ collections:
               - { name: slug, label: Slug, widget: string, required: false }
               - { name: id, label: Document ID, widget: string, required: false }
   - name: catalan-navigation
-    label: Categories (ca)
+    label: Seccions del menú lateral (ca)
+    description: Configura com apareixen els documents de la carpeta visita/ al menú lateral. El contingut s'edita des de Català.
     files:
       - name: visit-category
-        label: Visita
+        label: Carpeta visita/ — ajustos del menú
         file: i18n/ca/docusaurus-plugin-content-docs/current/visita/_category_.json
         fields:
           - { name: label, label: Etiqueta, widget: string }
@@ -114,7 +117,9 @@ collections:
               - { name: description, label: Descripció, widget: string, required: false }
               - { name: slug, label: Slug, widget: string, required: false }
               - { name: id, label: ID del document, widget: string, required: false }
-  - name: spanish
+  # Other document languages inherit these settings and override their paths and labels.
+  - &document_collection
+    name: spanish
     label: Español
     folder: docs
     create: true
@@ -133,17 +138,10 @@ collections:
       - { name: body, label: Contenido, widget: markdown }
     meta:
       path: { widget: string, label: Ruta dentro del idioma }
-  - name: english
+  - <<: *document_collection
+    name: english
     label: English
     folder: i18n/en/docusaurus-plugin-content-docs/current
-    create: true
-    nested:
-      depth: 4
-      summary: '{{title}}'
-      subfolders: true
-    slug: '{{slug}}'
-    format: frontmatter
-    extension: md
     fields:
       - { name: title, label: Title, widget: string }
       - { name: description, label: Description, widget: string, required: false }
@@ -152,17 +150,10 @@ collections:
       - { name: body, label: Content, widget: markdown }
     meta:
       path: { widget: string, label: Path within language }
-  - name: catalan
+  - <<: *document_collection
+    name: catalan
     label: Català
     folder: i18n/ca/docusaurus-plugin-content-docs/current
-    create: true
-    nested:
-      depth: 4
-      summary: '{{title}}'
-      subfolders: true
-    slug: '{{slug}}'
-    format: frontmatter
-    extension: md
     fields:
       - { name: title, label: Títol, widget: string }
       - { name: description, label: Descripció, widget: string, required: false }
