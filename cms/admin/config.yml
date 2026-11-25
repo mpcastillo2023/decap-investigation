@@ -44,25 +44,16 @@ collections:
         label: Carpeta visita/ — ajustes del menú
         file: docs/visita/_category_.json
         fields:
-          - { name: label, label: Etiqueta, widget: string }
+          - { name: label, label: Nombre en el menú, widget: string }
           - { name: position, label: Posición, widget: number, required: false }
-          - { name: collapsible, label: Plegable, widget: boolean, required: false }
-          - { name: collapsed, label: Plegada por defecto, widget: boolean, required: false }
+          - { name: collapsible, widget: hidden, default: true, required: false }
+          - { name: collapsed, widget: hidden, default: false, required: false }
           - name: customProps
             label: Opciones de visualización
             widget: object
             fields:
               - { name: showInMenu, label: Mostrar en el menú, widget: boolean, default: true }
-          - name: link
-            label: Enlace de categoría
-            widget: object
-            required: false
-            fields:
-              - { name: type, label: Tipo, widget: select, options: [generated-index, doc] }
-              - { name: title, label: Título, widget: string, required: false }
-              - { name: description, label: Descripción, widget: string, required: false }
-              - { name: slug, label: Slug, widget: string, required: false }
-              - { name: id, label: ID de documento, widget: string, required: false }
+          - { name: link, widget: hidden, default: { type: generated-index }, required: false }
   - name: english-navigation
     label: Sidebar sections (en)
     description: Configure how documents in the visita/ folder appear in the sidebar. Edit their content under English.
@@ -71,25 +62,16 @@ collections:
         label: visita/ folder — sidebar settings
         file: i18n/en/docusaurus-plugin-content-docs/current/visita/_category_.json
         fields:
-          - { name: label, label: Label, widget: string }
+          - { name: label, label: Menu name, widget: string }
           - { name: position, label: Position, widget: number, required: false }
-          - { name: collapsible, label: Collapsible, widget: boolean, required: false }
-          - { name: collapsed, label: Collapsed by default, widget: boolean, required: false }
+          - { name: collapsible, widget: hidden, default: true, required: false }
+          - { name: collapsed, widget: hidden, default: false, required: false }
           - name: customProps
             label: Display options
             widget: object
             fields:
               - { name: showInMenu, label: Show in menu, widget: boolean, default: true }
-          - name: link
-            label: Category link
-            widget: object
-            required: false
-            fields:
-              - { name: type, label: Type, widget: select, options: [generated-index, doc] }
-              - { name: title, label: Title, widget: string, required: false }
-              - { name: description, label: Description, widget: string, required: false }
-              - { name: slug, label: Slug, widget: string, required: false }
-              - { name: id, label: Document ID, widget: string, required: false }
+          - { name: link, widget: hidden, default: { type: generated-index }, required: false }
   - name: catalan-navigation
     label: Seccions del menú lateral (ca)
     description: Configura com apareixen els documents de la carpeta visita/ al menú lateral. El contingut s'edita des de Català.
@@ -98,25 +80,16 @@ collections:
         label: Carpeta visita/ — ajustos del menú
         file: i18n/ca/docusaurus-plugin-content-docs/current/visita/_category_.json
         fields:
-          - { name: label, label: Etiqueta, widget: string }
+          - { name: label, label: Nom al menú, widget: string }
           - { name: position, label: Posició, widget: number, required: false }
-          - { name: collapsible, label: Plegable, widget: boolean, required: false }
-          - { name: collapsed, label: Plegada per defecte, widget: boolean, required: false }
+          - { name: collapsible, widget: hidden, default: true, required: false }
+          - { name: collapsed, widget: hidden, default: false, required: false }
           - name: customProps
             label: Opcions de visualització
             widget: object
             fields:
               - { name: showInMenu, label: Mostrar al menú, widget: boolean, default: true }
-          - name: link
-            label: Enllaç de categoria
-            widget: object
-            required: false
-            fields:
-              - { name: type, label: Tipus, widget: select, options: [generated-index, doc] }
-              - { name: title, label: Títol, widget: string, required: false }
-              - { name: description, label: Descripció, widget: string, required: false }
-              - { name: slug, label: Slug, widget: string, required: false }
-              - { name: id, label: ID del document, widget: string, required: false }
+          - { name: link, widget: hidden, default: { type: generated-index }, required: false }
   # Other document languages inherit these settings and override their paths and labels.
   - &document_collection
     name: spanish
@@ -137,7 +110,7 @@ collections:
       - { name: sidebar_position, label: Posición, widget: number, required: false }
       - { name: body, label: Contenido, widget: markdown }
     meta:
-      path: { widget: string, label: Ruta dentro del idioma }
+      path: { widget: string, label: Carpeta, hint: "Carpeta relativa a este idioma; por ejemplo, visita o visita/accesibilidad. Cambiarla mueve el documento." }
   - <<: *document_collection
     name: english
     label: English
@@ -149,7 +122,7 @@ collections:
       - { name: sidebar_position, label: Position, widget: number, required: false }
       - { name: body, label: Content, widget: markdown }
     meta:
-      path: { widget: string, label: Path within language }
+      path: { widget: string, label: Folder, hint: "Folder relative to this language; for example, visita or visita/accessibility. Changing it moves the document." }
   - <<: *document_collection
     name: catalan
     label: Català
@@ -161,4 +134,4 @@ collections:
       - { name: sidebar_position, label: Posició, widget: number, required: false }
       - { name: body, label: Contingut, widget: markdown }
     meta:
-      path: { widget: string, label: Camí dins l’idioma }
+      path: { widget: string, label: Carpeta, hint: "Carpeta relativa a aquest idioma; per exemple, visita o visita/accessibilitat. Canviar-la mou el document." }

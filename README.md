@@ -34,3 +34,7 @@ All venue details and the SVG illustration are fictional sample content. The dep
 ## Category visibility
 
 Each language has an independent **Show in menu** toggle in its category settings. Turning it off removes that category and its nested categories from that language's sidebar only; it does not remove the documents from the build, search results, or direct URLs, and it does not restrict access. New categories need the same `customProps.showInMenu` metadata and Decap field in their locale's category collection to use this toggle.
+
+Category forms expose only the menu name, position, and visibility. Collapse behavior and category landing-page configuration are hidden fields: existing values are preserved, and technical changes remain developer-managed.
+
+The document editor's **Folder** field selects the actual directory relative to that language's content root. For example, `visita` saves a Spanish document under `docs/visita/` and an English document under `i18n/en/docusaurus-plugin-content-docs/current/visita/`. Changing this field moves the document; it does not define a second navigation tree. Decap's nested editor uses this path field to choose locations, while Docusaurus builds navigation from the resulting folders.
