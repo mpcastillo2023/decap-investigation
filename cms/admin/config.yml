@@ -116,7 +116,7 @@ collections:
           - { name: showInMenu, label: Mostrar en el menú, widget: boolean, default: true }
       - { name: body, label: Contenido, widget: markdown }
     meta:
-      path: { widget: string, label: Carpeta, hint: "Carpeta relativa a este idioma; por ejemplo, visita o visita/accesibilidad. Cambiarla mueve el documento." }
+      path: { widget: string, label: Carpeta, hint: "Carpeta relativa a este idioma; por ejemplo, affiliates. Cambiarla mueve el documento." }
   - <<: *document_collection
     name: english
     label: English
@@ -134,7 +134,7 @@ collections:
           - { name: showInMenu, label: Show in menu, widget: boolean, default: true }
       - { name: body, label: Content, widget: markdown }
     meta:
-      path: { widget: string, label: Folder, hint: "Folder relative to this language; for example, visita or visita/accessibility. Changing it moves the document." }
+      path: { widget: string, label: Folder, hint: "Folder relative to this language; for example, affiliates. Changing it moves the document." }
   - <<: *document_collection
     name: catalan
     label: Català
@@ -152,4 +152,4 @@ collections:
           - { name: showInMenu, label: Mostrar al menú, widget: boolean, default: true }
       - { name: body, label: Contingut, widget: markdown }
     meta:
-      path: { widget: string, label: Carpeta, hint: "Carpeta relativa a aquest idioma; per exemple, visita o visita/accessibilitat. Canviar-la mou el document." }
+      path: { widget: string, label: Carpeta, hint: "Carpeta relativa a aquest idioma; per exemple, affiliates. Canviar-la mou el document." }
