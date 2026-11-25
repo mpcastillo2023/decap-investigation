@@ -38,11 +38,11 @@ public_folder: /media
 collections:
   - name: spanish-navigation
     label: Secciones del menú lateral (es)
-    description: Configura cómo aparecen los documentos de la carpeta visita/ en el menú lateral. El contenido se edita desde Español.
+    description: Configura cómo aparece la categoría de afiliados en el menú lateral. El contenido se edita desde Español.
     files:
-      - name: visit-category
-        label: Carpeta visita/ — ajustes del menú
-        file: docs/visita/_category_.json
+      - name: affiliates-category
+        label: Categoría Afiliados — ajustes del menú
+        file: docs/affiliates/_category_.json
         fields:
           - { name: label, label: Nombre en el menú, widget: string }
           - { name: position, label: Posición, widget: number, required: false }
@@ -53,14 +53,14 @@ collections:
             widget: object
             fields:
               - { name: showInMenu, label: Mostrar en el menú, widget: boolean, default: true }
-          - { name: link, widget: hidden, default: { type: generated-index }, required: false }
+          - { name: link, widget: hidden, default: { type: doc, id: affiliates/index }, required: false }
   - name: english-navigation
     label: Sidebar sections (en)
-    description: Configure how documents in the visita/ folder appear in the sidebar. Edit their content under English.
+    description: Configure how documents in the affiliate category appear in the sidebar. Edit their content under English.
     files:
-      - name: visit-category
-        label: visita/ folder — sidebar settings
-        file: i18n/en/docusaurus-plugin-content-docs/current/visita/_category_.json
+      - name: affiliates-category
+        label: Affiliates category — sidebar settings
+        file: i18n/en/docusaurus-plugin-content-docs/current/affiliates/_category_.json
         fields:
           - { name: label, label: Menu name, widget: string }
           - { name: position, label: Position, widget: number, required: false }
@@ -71,14 +71,14 @@ collections:
             widget: object
             fields:
               - { name: showInMenu, label: Show in menu, widget: boolean, default: true }
-          - { name: link, widget: hidden, default: { type: generated-index }, required: false }
+          - { name: link, widget: hidden, default: { type: doc, id: affiliates/index }, required: false }
   - name: catalan-navigation
     label: Seccions del menú lateral (ca)
-    description: Configura com apareixen els documents de la carpeta visita/ al menú lateral. El contingut s'edita des de Català.
+    description: Configura com apareix la categoria d’afiliats al menú lateral. El contingut s'edita des de Català.
     files:
-      - name: visit-category
-        label: Carpeta visita/ — ajustos del menú
-        file: i18n/ca/docusaurus-plugin-content-docs/current/visita/_category_.json
+      - name: affiliates-category
+        label: Categoria Afiliats — ajustos del menú
+        file: i18n/ca/docusaurus-plugin-content-docs/current/affiliates/_category_.json
         fields:
           - { name: label, label: Nom al menú, widget: string }
           - { name: position, label: Posició, widget: number, required: false }
@@ -89,7 +89,7 @@ collections:
             widget: object
             fields:
               - { name: showInMenu, label: Mostrar al menú, widget: boolean, default: true }
-          - { name: link, widget: hidden, default: { type: generated-index }, required: false }
+          - { name: link, widget: hidden, default: { type: doc, id: affiliates/index }, required: false }
   # Other document languages inherit these settings and override their paths and labels.
   - &document_collection
     name: spanish
@@ -108,6 +108,12 @@ collections:
       - { name: description, label: Descripción, widget: string, required: false }
       - { name: sidebar_label, label: Nombre en el menú, widget: string, required: false }
       - { name: sidebar_position, label: Posición, widget: number, required: false }
+      - name: sidebar_custom_props
+        label: Opciones del menú
+        widget: object
+        required: false
+        fields:
+          - { name: showInMenu, label: Mostrar en el menú, widget: boolean, default: true }
       - { name: body, label: Contenido, widget: markdown }
     meta:
       path: { widget: string, label: Carpeta, hint: "Carpeta relativa a este idioma; por ejemplo, visita o visita/accesibilidad. Cambiarla mueve el documento." }
@@ -120,6 +126,12 @@ collections:
       - { name: description, label: Description, widget: string, required: false }
       - { name: sidebar_label, label: Sidebar label, widget: string, required: false }
       - { name: sidebar_position, label: Position, widget: number, required: false }
+      - name: sidebar_custom_props
+        label: Menu options
+        widget: object
+        required: false
+        fields:
+          - { name: showInMenu, label: Show in menu, widget: boolean, default: true }
       - { name: body, label: Content, widget: markdown }
     meta:
       path: { widget: string, label: Folder, hint: "Folder relative to this language; for example, visita or visita/accessibility. Changing it moves the document." }
@@ -132,6 +144,12 @@ collections:
       - { name: description, label: Descripció, widget: string, required: false }
       - { name: sidebar_label, label: Etiqueta del menú, widget: string, required: false }
       - { name: sidebar_position, label: Posició, widget: number, required: false }
+      - name: sidebar_custom_props
+        label: Opcions del menú
+        widget: object
+        required: false
+        fields:
+          - { name: showInMenu, label: Mostrar al menú, widget: boolean, default: true }
       - { name: body, label: Contingut, widget: markdown }
     meta:
       path: { widget: string, label: Carpeta, hint: "Carpeta relativa a aquest idioma; per exemple, visita o visita/accessibilitat. Canviar-la mou el document." }

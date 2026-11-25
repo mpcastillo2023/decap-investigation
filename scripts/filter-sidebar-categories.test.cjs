@@ -24,6 +24,12 @@ test('recursively removes hidden nested categories while keeping their siblings'
   assert.deepEqual(filterHiddenCategories([parent]), [{...parent, items: [visibleDoc]}]);
 });
 
+test('hides a document when its sidebar custom props disable menu visibility', () => {
+  const visible = {type: 'doc', id: 'seller'};
+  const hidden = {type: 'doc', id: 'intro', customProps: {showInMenu: false}};
+  assert.deepEqual(filterHiddenCategories([visible, hidden]), [visible]);
+});
+
 test('true and missing flags remain visible', () => {
   const explicitlyVisible = {type: 'category', customProps: {showInMenu: true}, items: []};
   const legacy = {type: 'category', items: []};

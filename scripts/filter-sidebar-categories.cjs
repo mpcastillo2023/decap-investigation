@@ -2,7 +2,7 @@
 
 function filterHiddenCategories(items) {
   return items.flatMap((item) => {
-    if (item.type === 'category' && item.customProps?.showInMenu === false) {
+    if (item.customProps?.showInMenu === false) {
       return [];
     }
 
