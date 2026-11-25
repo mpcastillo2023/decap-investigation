@@ -1,7 +1,7 @@
 ---
 title: Accesibilidad
 description: Información de acceso para todas las personas.
-sidebar_position: 2
+sidebar_position: ""
 ---
 ## Llegada y circulación
 
