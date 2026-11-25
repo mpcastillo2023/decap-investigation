@@ -38,22 +38,8 @@ public_folder: /media
 collections:
   - name: spanish-navigation
     label: Secciones del menú lateral (es)
-    description: Configura las categorías de distribuidores, afiliados y vouchers del menú lateral. El contenido se edita desde Español.
+    description: Configura la categoría de afiliados del menú lateral. El contenido se edita desde Español.
     files:
-      - name: sellers-category
-        label: Categoría Distribuidores — ajustes del menú
-        file: docs/sellers/_category_.json
-        fields:
-          - { name: label, label: Nombre en el menú, widget: string }
-          - { name: position, label: Posición, widget: number, required: false }
-          - { name: collapsible, widget: hidden, default: true, required: false }
-          - { name: collapsed, widget: hidden, default: false, required: false }
-          - name: customProps
-            label: Opciones de visualización
-            widget: object
-            fields:
-              - { name: showInMenu, label: Mostrar en el menú, widget: boolean, default: true }
-          - { name: link, widget: hidden, default: { type: doc, id: sellers/index }, required: false }
       - name: affiliates-category
         label: Categoría Afiliados — ajustes del menú
         file: docs/affiliates/_category_.json
@@ -68,38 +54,10 @@ collections:
             fields:
               - { name: showInMenu, label: Mostrar en el menú, widget: boolean, default: true }
           - { name: link, widget: hidden, default: { type: doc, id: affiliates/index }, required: false }
-      - name: vouchers-category
-        label: Categoría Vouchers — ajustes del menú
-        file: docs/vouchers/_category_.json
-        fields:
-          - { name: label, label: Nombre en el menú, widget: string }
-          - { name: position, label: Posición, widget: number, required: false }
-          - { name: collapsible, widget: hidden, default: true, required: false }
-          - { name: collapsed, widget: hidden, default: false, required: false }
-          - name: customProps
-            label: Opciones de visualización
-            widget: object
-            fields:
-              - { name: showInMenu, label: Mostrar en el menú, widget: boolean, default: true }
-          - { name: link, widget: hidden, default: { type: doc, id: vouchers/index }, required: false }
   - name: english-navigation
     label: Sidebar sections (en)
-    description: Configure the seller, affiliate, and voucher sidebar categories. Edit document content under English.
+    description: Configure the affiliate sidebar category. Edit document content under English.
     files:
-      - name: sellers-category
-        label: Category — Distributors menu settings
-        file: i18n/en/docusaurus-plugin-content-docs/current/sellers/_category_.json
-        fields:
-          - { name: label, label: Menu name, widget: string }
-          - { name: position, label: Position, widget: number, required: false }
-          - { name: collapsible, widget: hidden, default: true, required: false }
-          - { name: collapsed, widget: hidden, default: false, required: false }
-          - name: customProps
-            label: Display options
-            widget: object
-            fields:
-              - { name: showInMenu, label: Show in menu, widget: boolean, default: true }
-          - { name: link, widget: hidden, default: { type: doc, id: sellers/index }, required: false }
       - name: affiliates-category
         label: Category — Affiliates menu settings
         file: i18n/en/docusaurus-plugin-content-docs/current/affiliates/_category_.json
@@ -114,38 +72,10 @@ collections:
             fields:
               - { name: showInMenu, label: Show in menu, widget: boolean, default: true }
           - { name: link, widget: hidden, default: { type: doc, id: affiliates/index }, required: false }
-      - name: vouchers-category
-        label: Category — Vouchers menu settings
-        file: i18n/en/docusaurus-plugin-content-docs/current/vouchers/_category_.json
-        fields:
-          - { name: label, label: Menu name, widget: string }
-          - { name: position, label: Position, widget: number, required: false }
-          - { name: collapsible, widget: hidden, default: true, required: false }
-          - { name: collapsed, widget: hidden, default: false, required: false }
-          - name: customProps
-            label: Display options
-            widget: object
-            fields:
-              - { name: showInMenu, label: Show in menu, widget: boolean, default: true }
-          - { name: link, widget: hidden, default: { type: doc, id: vouchers/index }, required: false }
   - name: catalan-navigation
     label: Seccions del menú lateral (ca)
-    description: Configura les categories de distribuïdors, afiliats i vouchers del menú lateral. El contingut s’edita des de Català.
+    description: Configura la categoria d’afiliats del menú lateral. El contingut s’edita des de Català.
     files:
-      - name: sellers-category
-        label: Categoria Distribuïdors — ajustos del menú
-        file: i18n/ca/docusaurus-plugin-content-docs/current/sellers/_category_.json
-        fields:
-          - { name: label, label: Nom al menú, widget: string }
-          - { name: position, label: Posició, widget: number, required: false }
-          - { name: collapsible, widget: hidden, default: true, required: false }
-          - { name: collapsed, widget: hidden, default: false, required: false }
-          - name: customProps
-            label: Opcions de visualització
-            widget: object
-            fields:
-              - { name: showInMenu, label: Mostrar al menú, widget: boolean, default: true }
-          - { name: link, widget: hidden, default: { type: doc, id: sellers/index }, required: false }
       - name: affiliates-category
         label: Categoria Afiliats — ajustos del menú
         file: i18n/ca/docusaurus-plugin-content-docs/current/affiliates/_category_.json
@@ -160,21 +90,6 @@ collections:
             fields:
               - { name: showInMenu, label: Mostrar al menú, widget: boolean, default: true }
           - { name: link, widget: hidden, default: { type: doc, id: affiliates/index }, required: false }
-      - name: vouchers-category
-        label: Categoria Vouchers — ajustos del menú
-        file: i18n/ca/docusaurus-plugin-content-docs/current/vouchers/_category_.json
-        fields:
-          - { name: label, label: Nom al menú, widget: string }
-          - { name: position, label: Posició, widget: number, required: false }
-          - { name: collapsible, widget: hidden, default: true, required: false }
-          - { name: collapsed, widget: hidden, default: false, required: false }
-          - name: customProps
-            label: Opcions de visualització
-            widget: object
-            fields:
-              - { name: showInMenu, label: Mostrar al menú, widget: boolean, default: true }
-          - { name: link, widget: hidden, default: { type: doc, id: vouchers/index }, required: false }
-  # Other document languages inherit these settings and override their paths and labels.
   - &document_collection
     name: spanish
     label: Español
@@ -200,7 +115,7 @@ collections:
           - { name: showInMenu, label: Mostrar en el menú, widget: boolean, default: true }
       - { name: body, label: Contenido, widget: markdown }
     meta:
-      path: { widget: string, label: Carpeta de destino, hint: "Ruta relativa a los documentos de este idioma; por ejemplo, affiliates. Los documentos se guardan como archivos Markdown directamente en esa carpeta." }
+      path: { widget: string, label: Carpeta de destino, hint: "Ruta relativa a los documentos de este idioma; por ejemplo, affiliates. Déjala vacía para guardar el documento en la raíz.", required: false }
   - <<: *document_collection
     name: english
     label: English
@@ -218,7 +133,7 @@ collections:
           - { name: showInMenu, label: Show in menu, widget: boolean, default: true }
       - { name: body, label: Content, widget: markdown }
     meta:
-      path: { widget: string, label: Destination folder, hint: "Folder relative to this language; for example, affiliates. Documents are saved as Markdown files directly inside that folder." }
+      path: { widget: string, label: Destination folder, hint: "Folder relative to this language; for example, affiliates. Leave it empty to save the document at the root.", required: false }
   - <<: *document_collection
     name: catalan
     label: Català
@@ -236,4 +151,4 @@ collections:
           - { name: showInMenu, label: Mostrar al menú, widget: boolean, default: true }
       - { name: body, label: Contingut, widget: markdown }
     meta:
-      path: { widget: string, label: Carpeta de destinació, hint: "Carpeta relativa als documents d’aquest idioma; per exemple, affiliates. Els documents es desen com a fitxers Markdown directament dins d’aquesta carpeta." }
+      path: { widget: string, label: Carpeta de destinació, hint: "Carpeta relativa als documents d’aquest idioma; per exemple, affiliates. Deixeu-la buida per desar el document a l’arrel.", required: false }
